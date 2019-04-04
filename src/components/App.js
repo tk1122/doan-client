@@ -29,20 +29,39 @@ class App extends Component {
     }
   };
 
+  realtimeUpdate = () => {
+    const memberData = [];
+
+    db.collection("members").onSnapshot(querySnapshot => {
+      const changes = querySnapshot.docChanges();
+
+      changes.forEach(c => memberData.push(c.doc.data()));
+    });
+    this.setState({ memberData });
+  };
+
   async componentDidMount() {
     const memberData = [];
     const guestData = [];
 
-    await db.collection("members").onSnapshot(querySnapshot => {
-      querySnapshot.docs.forEach(m => memberData.push(m.data()));
-    });
+    await db
+      .collection("members")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(c => memberData.push(c.data()));
+      });
     this.setState({ memberData });
 
-    await db.collection("guests").onSnapshot(querySnapshot => {
-      querySnapshot.docs.forEach(g => guestData.push(g.data()));
-    });
+    await db
+      .collection("guests")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(g => guestData.push(g.data()));
+      });
     this.setState({ guestData });
   }
+
+  getUpdate = () => {};
 
   render() {
     return (
