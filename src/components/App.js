@@ -29,17 +29,6 @@ class App extends Component {
     }
   };
 
-  realtimeUpdate = () => {
-    const memberData = [];
-
-    db.collection("members").onSnapshot(querySnapshot => {
-      const changes = querySnapshot.docChanges();
-
-      changes.forEach(c => memberData.push(c.doc.data()));
-    });
-    this.setState({ memberData });
-  };
-
   async componentDidMount() {
     const memberData = [];
     const guestData = [];
@@ -60,8 +49,6 @@ class App extends Component {
       });
     this.setState({ guestData });
   }
-
-  getUpdate = () => {};
 
   render() {
     return (
