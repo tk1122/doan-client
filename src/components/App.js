@@ -22,7 +22,7 @@ class App extends Component {
             class={value.class}
             plate={value.plate}
             lastActivity={value.lastActivity}
-            isCurrentlyIn={value.isCurrentlyin}
+            isCurrentlyIn={value.isCurrentlyIn}
           />
         );
       });

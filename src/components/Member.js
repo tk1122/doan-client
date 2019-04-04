@@ -2,9 +2,10 @@ import React, { Component } from "react";
 
 export default class Member extends Component {
   showTrangThai = () => {
-    if (this.props.isCurrentlyIn) return <i className="fas fa-times-circle" />;
+    console.log(this.props.isCurrentlyIn);
+    if (this.props.isCurrentlyIn) return <i className="fas fa-check-square" />;
 
-    return <i className="fas fa-check-square" />;
+    return <i className="fas fa-times-circle" />;
   };
   render() {
     return (
