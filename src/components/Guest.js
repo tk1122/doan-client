@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 
 export default class Guest extends Component {
   showTrangThai = () => {
@@ -11,9 +12,9 @@ export default class Guest extends Component {
     return (
       <tr>
         <td>{this.props.stt}</td>
-        <td>{this.props.rfid}</td>
+        <td>{this.props.RFID}</td>
         <td className=" text-center">{this.showTrangThai()}</td>
-        <td>{new Date(this.props.lastActivity.toDate()).toString()}</td>
+        <td>{moment(this.props.lastActivity.toDate()).fromNow()}</td>
       </tr>
     );
   }

@@ -20,7 +20,7 @@ class App extends Component {
           <Member
             key={value.RFID}
             stt={key + 1}
-            rfid={value.RFID}
+            MSSV={value.MSSV}
             name={value.name}
             class={value.class}
             plate={value.plate}
@@ -39,7 +39,7 @@ class App extends Component {
           <Guest
             key={value.RFID}
             stt={key + 1}
-            rfid={value.RFID}
+            RFID={value.RFID}
             lastActivity={value.lastActivity}
             isCurrentlyIn={value.isCurrentlyIn}
           />
@@ -100,7 +100,7 @@ class App extends Component {
           <thead className="thead-inverse">
             <tr>
               <th>STT</th>
-              <th>RFID</th>
+              <th>MSSV</th>
               <th>Họ tên</th>
               <th>Lớp</th>
               <th>Bển số xe</th>
