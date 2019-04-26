@@ -5,7 +5,7 @@ export default class Member extends Component {
   showTrangThai = () => {
     console.log(this.props.isCurrentlyIn);
     if (this.props.isCurrentlyIn) return <i className="fas fa-check-square" />;
-
+    // demo
     return <i className="fas fa-times-circle blue" />;
   };
   render() {
